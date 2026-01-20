@@ -1,6 +1,6 @@
 # 👑 Cinderella Adaptations - Module 2 Video Reflection
 
-**GER 441 - German Fairy Tales & Fantasy**  
+**SLC 441 - Fairy Tales to Disney Movies**  
 *Elizabeth Johnson*
 
 ---
@@ -95,7 +95,7 @@ This interactive presentation was created for **Module 2 Video Reflection** assi
 
 ## 🎓 Course Information
 
-**Course:** GER 441 - German Fairy Tales & Fantasy  
+**Course:** SLC 441 - Fairy Tales to Disney Movies  
 **Assignment:** Module 2 Video Reflection  
 **Focus:** Comparative analysis of Cinderella adaptations
 
