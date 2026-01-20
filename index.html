@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 Cinderella Adaptations - Module 2 Reflection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 20%, #4a7ba7 40%, #89b5d9 60%, #b8d4e8 80%, #e8f4f8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            color: #1a1a2e;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(173, 216, 230, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 250, 252, 0.92) 50%, 
+                rgba(240, 245, 250, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 20px 0;
+            box-shadow: 
+                0 8px 32px rgba(30, 58, 95, 0.15),
+                0 2px 8px rgba(255, 215, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 3px solid rgba(173, 216, 230, 0.4);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: slideIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(173, 216, 230, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            border-radius: 30px;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide.hidden {
+            display: none;
+        }
+
+        .title-slide h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #4a7ba7 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+            animation: float 3s ease-in-out infinite;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .title-slide h2 {
+            font-size: 2em;
+            font-weight: 300;
+            color: #2d5a8c;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 3em;
+            animation: twinkle 2s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3) rotate(180deg);
+                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+            }
+        }
+
+        .slide h3 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1e3a5f;
+            text-shadow: 0 2px 10px rgba(74, 123, 167, 0.2);
+            font-weight: bold;
+        }
+
+        .content-box {
+            background: linear-gradient(135deg, 
+                rgba(173, 216, 230, 0.15) 0%, 
+                rgba(255, 255, 255, 0.25) 100%);
+            border: 3px solid rgba(74, 123, 167, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: left;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 
+                0 4px 15px rgba(30, 58, 95, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .content-box ul {
+            list-style: none;
+            font-size: 1.3em;
+            line-height: 2;
+            color: #1a1a2e;
+        }
+
+        .content-box ul li {
+            margin: 15px 0;
+        }
+
+        .question-header {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e4a7 100%);
+            border-radius: 10px;
+            color: #1e3a5f;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .question-text {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, 
+                rgba(173, 216, 230, 0.2) 0%, 
+                rgba(255, 255, 255, 0.3) 100%);
+            border: 3px solid rgba(74, 123, 167, 0.4);
+            border-radius: 15px;
+            line-height: 1.6;
+            color: #1a1a2e;
+            box-shadow: 
+                0 4px 15px rgba(30, 58, 95, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .answer-box {
+            background: linear-gradient(135deg, 
+                rgba(240, 245, 250, 0.6) 0%, 
+                rgba(255, 255, 255, 0.4) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: left;
+            max-width: 900px;
+            width: 100%;
+            color: #1a1a2e;
+            border: 2px solid rgba(173, 216, 230, 0.3);
+            box-shadow: 0 2px 10px rgba(30, 58, 95, 0.08);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, rgba(74, 123, 167, 0.9) 0%, rgba(45, 90, 140, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 
+                0 4px 15px rgba(30, 58, 95, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.95) 0%, rgba(255, 215, 0, 0.95) 100%);
+            transform: scale(1.05);
+            box-shadow: 
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.85) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid rgba(173, 216, 230, 0.5);
+            z-index: 1000;
+            color: #1e3a5f;
+            box-shadow: 
+                0 4px 15px rgba(30, 58, 95, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* Magical floating sparkles */
+        .floating-sparkle {
+            position: fixed;
+            font-size: 2em;
+            animation: floatUp 4s ease-in infinite;
+            pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cursor trail */
+        .cursor-trail {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.8), rgba(255, 215, 0, 0));
+            pointer-events: none;
+            animation: fadeTrail 0.8s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fadeTrail {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Emphasis styling */
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 10px;
+            filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+        }
+
+        .slide-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37 0%, #f4e4a7 50%, #d4af37 100%);
+            transition: width 0.3s;
+            z-index: 1001;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+                min-height: auto;
+            }
+            .title-slide h1 {
+                font-size: 2.5em;
+            }
+            .slide h3 {
+                font-size: 1.8em;
+            }
+            .content-box ul {
+                font-size: 1.1em;
+            }
+            .question-text {
+                font-size: 1.2em;
+            }
+            .answer-box {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-progress" id="progress"></div>
+    <div class="slide-counter" id="counter">Slide 1 / 11</div>
+    
+    <div class="container">
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide" data-slide="1">
+            <span class="sparkle" style="top: 10%; left: 10%;">✨</span>
+            <span class="sparkle" style="top: 10%; right: 10%;">👑</span>
+            <span class="sparkle" style="bottom: 15%; left: 10%;">🌟</span>
+            <span class="sparkle" style="bottom: 15%; right: 10%;">💫</span>
+            <span class="sparkle" style="top: 5%; left: 50%; transform: translateX(-50%);">🎭</span>
+            
+            <h1>👑 Cinderella Adaptations 👑</h1>
+            <h2>How Cultural Values Shape the Same Story</h2>
+        </div>
+
+        <!-- Slide 2: Introduction -->
+        <div class="slide hidden" data-slide="2">
+            <h3>✨ Elizabeth Johnson - Module 2 Reflection</h3>
+            <div class="content-box">
+                <ul>
+                    <li><span class="emoji">🎭</span><strong>My focus for this module:</strong><br>
+                        Analyzing how Cinderella adaptations reflect<br>
+                        the cultural values of their time periods</li>
+                    <li><span class="emoji">📚</span><strong>Versions I'm comparing:</strong>
+                        <ul style="margin-left: 30px; margin-top: 10px;">
+                            <li>• Grimm Brothers tradition</li>
+                            <li>• Disney's 1950 animated film</li>
+                            <li>• Disney's 2015 live-action film</li>
+                        </ul>
+                    </li>
+                    <li><span class="emoji">💭</span><strong>My approach:</strong> Moving beyond plot summary<br>
+                        to examine what these changes reveal</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: Question 1 -->
+        <div class="slide hidden" data-slide="3">
+            <div class="question-header">Question 1</div>
+            <div class="question-text">
+                How does the role of Cinderella's mother differ across Grimm, Disney 1950, and Disney 2015, and what does that reveal about morality and belief?
+            </div>
+            <div class="answer-box">
+                In the Grimm version, the mother remains spiritually present through the tree and the birds, which really frames Cinderella's success as connected to devotion, memory, and moral integrity. This shifts the story away from random magic and toward a worldview where belief and ethical behavior are actually rewarded.
+                <br><br>
+                Disney's 1950 version replaces this with the Fairy Godmother, which emphasizes external rescue over that spiritual continuity. It's a different kind of magic—more about intervention than connection.
+                <br><br>
+                The 2015 film brings back the mother's influence through her words—'have courage and be kind'—which becomes Cinderella's moral compass throughout the story.
+            </div>
+        </div>
+
+        <!-- Slide 4: Question 2 -->
+        <div class="slide hidden" data-slide="4">
+            <div class="question-header">Question 2</div>
+            <div class="question-text">
+                How does Cinderella's level of agency change across adaptations, and how do those changes reflect evolving ideas of strength in women?
+            </div>
+            <div class="answer-box">
+                In the Grimm story, Cinderella makes deliberate choices: she seeks help, follows instructions, protects her identity, and persists despite obstacles. This presents her as genuinely agentic—someone who acts rather than just endures.
+                <br><br>
+                Disney's 1950 Cinderella is kind and patient, but considerably more passive. She waits for good things to happen, which reinforces this narrative where endurance itself becomes the virtue being rewarded.
+                <br><br>
+                The 2015 version strikes an interesting balance. She maintains her kindness but demonstrates strength through self-direction and inner conviction rather than just waiting for rescue. It's a more contemporary understanding of what strength looks like in women.
+            </div>
+        </div>
+
+        <!-- Slide 5: Question 3 -->
+        <div class="slide hidden" data-slide="5">
+            <div class="question-header">Question 3</div>
+            <div class="question-text">
+                What does the stepsisters' self-mutilation in Grimm symbolize about social pressure, beauty standards, and women's worth?
+            </div>
+            <div class="answer-box">
+                The violent imagery reflects extreme social pressures surrounding beauty, marriage, and women's worth. It exaggerates how far individuals will go to meet cultural expectations, but that exaggeration serves a purpose—it's critiquing the damaging consequences of rigid beauty standards and the competition society imposes.
+                <br><br>
+                Reading a classmate's analysis helped me see this differently—they wrote about how modern adaptations still deal with these same pressures around appearance and conformity, just in less graphic ways. The critique has become more subtle but the underlying concern about societal expectations remains present in how contemporary versions handle beauty and worth.
+            </div>
+        </div>
+
+        <!-- Slide 6: Question 4 -->
+        <div class="slide hidden" data-slide="6">
+            <div class="question-header">Question 4</div>
+            <div class="question-text">
+                How does the role of the pigeons in Grimm versus Disney reveal different approaches to justice, morality, and accountability?
+            </div>
+            <div class="answer-box">
+                The pigeons expose deception and enforce justice—they're essentially ethical agents within the narrative. This gives the story a clear moral structure where actions have consequences and truth matters.
+                <br><br>
+                Disney's version softens this considerably. Justice becomes less direct, and there's more emphasis on forgiveness and emotional fulfillment than on accountability.
+                <br><br>
+                This shift reflects a broader cultural movement from narratives centered on moral order and consequence to stories focused on personal happiness and romance. It's interesting to see how the same story can prioritize such different values depending on when it's told.
+            </div>
+        </div>
+
+        <!-- Slide 7: Question 5 -->
+        <div class="slide hidden" data-slide="7">
+            <div class="question-header">Question 5</div>
+            <div class="question-text">
+                How do the different endings communicate shifting cultural values around love, identity, punishment, and reward?
+            </div>
+            <div class="answer-box">
+                Grimm's ending emphasizes consequence and moral order—the stepsisters face harsh punishment for their deception. It's teaching a clear lesson about honesty and the cost of lying.
+                <br><br>
+                The 1950 Disney version focuses on romance and emotional fulfillment. The ending is optimistic and centers on love as the ultimate reward, with less concern for punishing wrongdoing.
+                <br><br>
+                The 2015 version adds another layer with themes of identity and self-worth. Cinderella even forgives her stepmother, which introduces a more nuanced understanding of justice.
+                <br><br>
+                This evolution shows how fairy tales adapt to reflect changing cultural values—from cautionary moral tales to stories about personal happiness and forgiveness.
+            </div>
+        </div>
+
+        <!-- Slide 8: Class Discussion -->
+        <div class="slide hidden" data-slide="8">
+            <h3>💬 How Discussion Deepened My Understanding</h3>
+            <div class="content-box">
+                <ul>
+                    <li><span class="emoji">🎓</span><strong>Engaging with classmates' perspectives:</strong><br>
+                        Reading their written analyses revealed<br>
+                        connections I hadn't considered</li>
+                    <li><span class="emoji">💭</span><strong>Questions raised in discussion:</strong><br>
+                        Made me think about WHY certain changes<br>
+                        happen across adaptations</li>
+                    <li><span class="emoji">✨</span><strong>Collaborative learning matters:</strong><br>
+                        Seeing how others interpreted the same<br>
+                        material strengthened my analytical approach<br>
+                        and revealed new layers of meaning</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 9: Reflection Part 1 -->
+        <div class="slide hidden" data-slide="9">
+            <h3>💎 What This Analysis Revealed</h3>
+            <div class="content-box">
+                <ul>
+                    <li><span class="emoji">🔍</span><strong>Adaptations reshape meaning, not just style:</strong><br>
+                        Each version reflects its era's cultural values</li>
+                    <li><span class="emoji">📚</span><strong>Each version functions as a cultural artifact:</strong><br>
+                        Shows evolving views on gender and power<br>
+                        Reveals changing definitions of morality<br>
+                        Demonstrates shifting ideas about identity</li>
+                    <li><span class="emoji">✨</span><strong>Context transforms interpretation:</strong><br>
+                        Understanding WHY changes occur reveals<br>
+                        what each society values and fears</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Reflection Part 2 -->
+        <div class="slide hidden" data-slide="10">
+            <h3>🌟 How This Changed My Perspective</h3>
+            <div class="content-box">
+                <ul>
+                    <li><span class="emoji">💭</span><strong>Transformed my understanding of fairy tales:</strong><br>
+                        They're not timeless—they evolve with culture<br>
+                        Each adaptation captures a specific moment</li>
+                    <li><span class="emoji">🎓</span><strong>Developed more critical analytical skills:</strong><br>
+                        Moving beyond plot to examine meaning<br>
+                        Considering historical and cultural context<br>
+                        Asking what changes reveal about values</li>
+                    <li><span class="emoji">✨</span><strong>Fairy tales function as cultural mirrors:</strong><br>
+                        Reflect anxieties and aspirations<br>
+                        Show how we define strength, justice, love<br>
+                        Demonstrate ongoing cultural evolution</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 11: Conclusion -->
+        <div class="slide title-slide hidden" data-slide="11">
+            <span class="sparkle" style="top: 10%; left: 10%;">✨</span>
+            <span class="sparkle" style="top: 10%; right: 10%;">👑</span>
+            <span class="sparkle" style="bottom: 15%; left: 10%;">🌟</span>
+            <span class="sparkle" style="bottom: 15%; right: 10%;">💫</span>
+            <span class="sparkle" style="top: 5%; left: 50%; transform: translateX(-50%);">🎭</span>
+            
+            <h1>✨ Thank You ✨</h1>
+            <h2>Fairy tales as mirrors of cultural evolution</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 11;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.add('hidden'));
+            
+            const targetSlide = document.querySelector(`[data-slide="${n}"]`);
+            if (targetSlide) {
+                targetSlide.classList.remove('hidden');
+            }
+
+            // Update counter
+            document.getElementById('counter').textContent = `Slide ${n} / ${totalSlides}`;
+
+            // Update progress bar
+            const progress = (n / totalSlides) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = (n === 1);
+            document.getElementById('nextBtn').disabled = (n === totalSlides);
+
+            // Create celebration sparkles when reaching final slide
+            if (n === totalSlides) {
+                createCelebration();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+                createMagicBurst();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+                createMagicBurst();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Create magical burst effect
+        function createMagicBurst() {
+            const sparkles = ['✨', '⭐', '🌟', '💫', '👑'];
+            for (let i = 0; i < 12; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = '50%';
+                sparkle.style.top = '50%';
+                sparkle.style.fontSize = '30px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '9999';
+                sparkle.style.transition = 'all 1s ease-out';
+                document.body.appendChild(sparkle);
+                
+                const angle = (Math.PI * 2 * i) / 12;
+                const distance = 150;
+                setTimeout(() => {
+                    sparkle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) rotate(360deg)`;
+                    sparkle.style.opacity = '0';
+                }, 10);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+
+        // Create celebration effect
+        function createCelebration() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.textContent = ['✨', '👑', '🌟', '💫', '🎭'][Math.floor(Math.random() * 5)];
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = '-50px';
+                    sparkle.style.fontSize = (20 + Math.random() * 30) + 'px';
+                    sparkle.style.animation = 'floatUp 3s ease-out forwards';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '9999';
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Continuous floating sparkles
+        function createFloatingSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'floating-sparkle';
+            sparkle.textContent = ['✨', '⭐', '🌟', '💫'][Math.floor(Math.random() * 4)];
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 4000);
+        }
+
+        // Create sparkles periodically
+        setInterval(createFloatingSparkle, 800);
+
+        // Magical cursor trail
+        let lastTrail = 0;
+        document.addEventListener('mousemove', function(e) {
+            const now = Date.now();
+            if (now - lastTrail < 50) return;
+            lastTrail = now;
+            
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX - 7.5 + 'px';
+            trail.style.top = e.pageY - 7.5 + 'px';
+            document.body.appendChild(trail);
+            
+            setTimeout(() => trail.remove(), 800);
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

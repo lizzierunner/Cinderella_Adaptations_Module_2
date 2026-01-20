@@ -1,0 +1,20 @@
+# PDF files (keep your coursework local)
+*.pdf
+
+# Pages files
+*.pages
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# PowerPoint
+*.pptx
+*.ppt
+
+# Text files with answers (keep private)
+*_Questions_For_Submission.txt
