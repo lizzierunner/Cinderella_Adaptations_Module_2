@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Interactive analysis of Cinderella adaptations across Grimm Brothers, Disney 1950, and Disney 2015 - Module 2 Video Reflection for SLC 441">
+    <meta name="theme-color" content="#1e3a5f">
     <title>👑 Cinderella Adaptations - Module 2 Reflection</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
     <style>
@@ -475,22 +477,135 @@
         @media (max-width: 768px) {
             .slide {
                 padding: 30px 20px;
-                min-height: auto;
+                min-height: 500px;
             }
             .title-slide h1 {
                 font-size: 2.5em;
+                letter-spacing: 1px;
+            }
+            .title-slide h2 {
+                font-size: 1.5em;
             }
             .slide h3 {
                 font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            .content-box {
+                padding: 20px;
             }
             .content-box ul {
                 font-size: 1.1em;
+                line-height: 1.8;
+            }
+            .question-header {
+                font-size: 1.5em;
+                padding: 12px;
             }
             .question-text {
                 font-size: 1.2em;
+                padding: 15px;
             }
             .answer-box {
                 font-size: 1.1em;
+                padding: 20px;
+                line-height: 1.7;
+            }
+            .nav-btn {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+            .slide-counter {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .sparkle {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding: 20px 15px;
+                min-height: 400px;
+            }
+            .title-slide h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .title-slide h2 {
+                font-size: 1.2em;
+            }
+            .slide h3 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            .content-box {
+                padding: 15px;
+            }
+            .content-box ul {
+                font-size: 1em;
+                line-height: 1.7;
+            }
+            .question-header {
+                font-size: 1.3em;
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            .question-text {
+                font-size: 1.1em;
+                padding: 12px;
+                margin-bottom: 20px;
+            }
+            .answer-box {
+                font-size: 1em;
+                padding: 15px;
+                line-height: 1.6;
+            }
+            .navigation {
+                bottom: 20px;
+                gap: 10px;
+            }
+            .nav-btn {
+                padding: 10px 25px;
+                font-size: 0.9em;
+            }
+            .slide-counter {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .sparkle {
+                font-size: 1.5em;
+            }
+            .emoji {
+                font-size: 1em;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+            .slide {
+                padding: 80px;
+                min-height: 700px;
+            }
+            .title-slide h1 {
+                font-size: 5em;
+            }
+            .slide h3 {
+                font-size: 3em;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            .slide {
+                min-height: auto;
+                padding: 20px 40px;
+            }
+            .navigation {
+                bottom: 15px;
             }
         }
     </style>
