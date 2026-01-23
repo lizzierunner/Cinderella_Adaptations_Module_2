@@ -36,17 +36,17 @@
                     transparent 2px,
                     rgba(139, 90, 43, 0.01) 3px
                 ),
-                /* Deep Stardust indigo night sky */
+                /* Deep pure indigo night sky - darker, less purple */
                 linear-gradient(135deg, 
-                #0a0820 0%,
-                #151140 15%, 
-                #1a1855 25%,
-                #1e2163 40%,
-                #252b70 50%,
-                #2a2f7a 60%,
-                #1e2163 75%,
-                #151140 90%,
-                #0a0820 100%);
+                #050a1a 0%,
+                #0a1428 15%, 
+                #0f1d3a 25%,
+                #14264d 40%,
+                #1a315f 50%,
+                #1e3a6b 60%,
+                #14264d 75%,
+                #0a1428 90%,
+                #050a1a 100%);
             background-size: 100% 100%, 100% 100%, 400% 400%;
             animation: gradientShift 25s ease infinite;
             color: #1a1a2e;
@@ -1393,14 +1393,14 @@
             }
         }, 3000);
 
-        // Magical cursor trail with enhanced fairy dust
+        // Magical cursor trail - REMOVED fairy dust for subtlety
         let lastTrail = 0;
         document.addEventListener('mousemove', function(e) {
             const now = Date.now();
             if (now - lastTrail < 50) return;
             lastTrail = now;
             
-            // Original cursor trail
+            // Original cursor trail only
             const trail = document.createElement('div');
             trail.className = 'cursor-trail';
             trail.style.left = e.pageX - 7.5 + 'px';
@@ -1409,16 +1409,7 @@
             
             setTimeout(() => trail.remove(), 800);
             
-            // Enhanced fairy dust particles - VERY SUBTLE
-            if (Math.random() > 0.85) {
-                const dust = document.createElement('div');
-                dust.className = 'fairy-dust';
-                dust.style.left = e.pageX + (Math.random() * 15 - 7.5) + 'px';
-                dust.style.top = e.pageY + (Math.random() * 15 - 7.5) + 'px';
-                document.body.appendChild(dust);
-                
-                setTimeout(() => dust.remove(), 1500);
-            }
+            // Fairy dust removed for super subtle effect
         });
         
         // Create constellation connections (visual effect)
@@ -1514,16 +1505,16 @@
             setTimeout(() => particle.remove(), 6000);
         }
         
-        // Continuous Stardust effects - REDUCED FREQUENCY
-        setInterval(createStardustShootingStar, 6000);
-        setInterval(createMagicParticles, 800);
+        // Continuous Stardust effects - SUBTLE (no falling particles)
+        setInterval(createStardustShootingStar, 8000);
+        // setInterval(createMagicParticles, 800); // REMOVED for subtlety
         
         // Extra shooting stars for dramatic effect
         setInterval(() => {
-            if (Math.random() > 0.7) {
+            if (Math.random() > 0.75) {
                 createStardustShootingStar();
             }
-        }, 4000);
+        }, 5000);
 
         // Initialize
         showSlide(1);
