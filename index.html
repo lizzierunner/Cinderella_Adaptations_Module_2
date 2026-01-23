@@ -20,15 +20,33 @@
 
         body {
             font-family: 'Garamond', 'Georgia', serif;
-            background: linear-gradient(135deg, 
+            background: 
+                /* Vintage paper texture overlay */
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(139, 90, 43, 0.02) 0px,
+                    transparent 1px,
+                    transparent 2px,
+                    rgba(139, 90, 43, 0.02) 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(139, 90, 43, 0.02) 0px,
+                    transparent 1px,
+                    transparent 2px,
+                    rgba(139, 90, 43, 0.02) 3px
+                ),
+                /* 2015 Cinderella gradient with warm accents */
+                linear-gradient(135deg, 
                 #0a0e27 0%, 
                 #1a1d3a 15%, 
                 #2d3561 30%, 
                 #1e3a5f 45%,
+                #8b5a2b 55%,
                 #4a7ba7 65%, 
                 #89b5d9 80%, 
                 #c7e0f4 100%);
-            background-size: 400% 400%;
+            background-size: 100% 100%, 100% 100%, 400% 400%;
             animation: gradientShift 25s ease infinite;
             color: #1a1a2e;
             overflow-x: hidden;
@@ -102,7 +120,23 @@
         }
 
         .slide {
-            background: linear-gradient(135deg, 
+            background: 
+                /* Vintage linen texture */
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(139, 90, 43, 0.03) 0px,
+                    rgba(139, 90, 43, 0.03) 2px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(139, 90, 43, 0.02) 0px,
+                    rgba(139, 90, 43, 0.02) 2px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                linear-gradient(135deg, 
                 rgba(255, 255, 255, 0.97) 0%, 
                 rgba(250, 250, 255, 0.95) 30%,
                 rgba(245, 248, 255, 0.93) 60%, 
@@ -117,7 +151,8 @@
                 0 16px 64px rgba(138, 202, 242, 0.15),
                 0 2px 8px rgba(255, 215, 0, 0.12),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9),
-                inset 0 -1px 0 rgba(138, 202, 242, 0.2);
+                inset 0 -1px 0 rgba(138, 202, 242, 0.2),
+                inset 0 0 60px rgba(139, 90, 43, 0.05);
             border: 3px solid rgba(138, 202, 242, 0.5);
             min-height: 600px;
             display: flex;
@@ -197,6 +232,33 @@
             position: relative;
             filter: drop-shadow(0 2px 20px rgba(138, 202, 242, 0.5));
         }
+        
+        /* Vintage decorative flourishes */
+        .title-slide h1::before,
+        .title-slide h1::after {
+            content: '❦';
+            position: absolute;
+            font-size: 0.3em;
+            background: linear-gradient(135deg, #d4af37, #8b5a2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: none;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 8px rgba(139, 90, 43, 0.4));
+        }
+        
+        .title-slide h1::before {
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+        
+        .title-slide h1::after {
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(15deg);
+        }
 
         @keyframes shimmer {
             0%, 100% { 
@@ -262,7 +324,15 @@
         }
 
         .content-box {
-            background: linear-gradient(135deg, 
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(139, 90, 43, 0.015) 0px,
+                    rgba(139, 90, 43, 0.015) 2px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                linear-gradient(135deg, 
                 rgba(173, 216, 230, 0.15) 0%, 
                 rgba(255, 255, 255, 0.25) 100%);
             border: 3px solid rgba(74, 123, 167, 0.3);
@@ -274,8 +344,30 @@
             max-width: 900px;
             box-shadow: 
                 0 4px 15px rgba(30, 58, 95, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 0 40px rgba(139, 90, 43, 0.03);
             animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+        
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+        }
+        
+        .content-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(139, 90, 43, 0.2), transparent);
         }
 
         @keyframes fadeInUp {
@@ -305,10 +397,45 @@
             font-weight: bold;
             margin-bottom: 20px;
             padding: 15px;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e4a7 100%);
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(139, 90, 43, 0.05) 0px,
+                    rgba(139, 90, 43, 0.05) 1px,
+                    transparent 1px,
+                    transparent 3px
+                ),
+                linear-gradient(135deg, #d4af37 0%, #f4e4a7 100%);
             border-radius: 10px;
             color: #1e3a5f;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 4px 15px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 0 30px rgba(139, 90, 43, 0.1);
+            position: relative;
+            border: 2px solid rgba(139, 90, 43, 0.2);
+        }
+        
+        .question-header::before {
+            content: '✦';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 0.6em;
+            opacity: 0.6;
+        }
+        
+        .question-header::after {
+            content: '✦';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 0.6em;
+            opacity: 0.6;
         }
 
         .question-text {
@@ -355,10 +482,18 @@
         }
 
         .nav-btn {
-            background: linear-gradient(135deg, rgba(74, 123, 167, 0.9) 0%, rgba(45, 90, 140, 0.9) 100%);
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(139, 90, 43, 0.1) 0px,
+                    rgba(139, 90, 43, 0.1) 1px,
+                    transparent 1px,
+                    transparent 3px
+                ),
+                linear-gradient(135deg, rgba(74, 123, 167, 0.9) 0%, rgba(45, 90, 140, 0.9) 100%);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(212, 175, 55, 0.4);
             color: white;
             padding: 15px 40px;
             font-size: 1.2em;
@@ -368,7 +503,25 @@
             font-weight: bold;
             box-shadow: 
                 0 4px 15px rgba(30, 58, 95, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 0 30px rgba(139, 90, 43, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .nav-btn:hover::before {
+            left: 100%;
         }
 
         .nav-btn:hover {
