@@ -1209,12 +1209,13 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto" autoplay>
         <source src="arrival-of-a-princess-aaron-paul-low-main-version-20384-01-00.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
     
     <!-- Music Control Button -->
-    <button id="musicToggle" style="position: fixed; top: 20px; right: 80px; z-index: 1001; background: rgba(25, 38, 62, 0.8); color: #d0e0f0; border: 2px solid #4a5f7f; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">🔇</button>
+    <button id="musicToggle" style="position: fixed; top: 20px; right: 80px; z-index: 1001; background: rgba(25, 38, 62, 0.8); color: #d0e0f0; border: 2px solid #4a5f7f; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease;">🔇</button>
     
     <!-- Progress bar completely hidden - updated version -->
     <div class="slide-progress" id="progress" style="display: none !important;"></div>
@@ -1730,29 +1731,53 @@
         let isMusicPlaying = false;
         
         // Set initial volume
-        bgMusic.volume = 0.3;
+        bgMusic.volume = 0.4;
         
-        musicToggle.addEventListener('click', function() {
-            if (isMusicPlaying) {
-                bgMusic.pause();
-                musicToggle.textContent = '🔇';
-                isMusicPlaying = false;
-            } else {
-                bgMusic.play();
+        // Function to play music
+        function playMusic() {
+            bgMusic.play().then(() => {
                 musicToggle.textContent = '🔊';
                 isMusicPlaying = true;
+                console.log('Music started playing');
+            }).catch(error => {
+                console.log('Audio play failed:', error);
+                musicToggle.textContent = '🔇';
+            });
+        }
+        
+        // Function to pause music
+        function pauseMusic() {
+            bgMusic.pause();
+            musicToggle.textContent = '�';
+            isMusicPlaying = false;
+            console.log('Music paused');
+        }
+        
+        // Toggle music on button click
+        musicToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (isMusicPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
             }
         });
         
-        // Auto-play on first user interaction
-        document.addEventListener('click', function playOnFirstClick() {
-            if (!isMusicPlaying) {
-                bgMusic.play();
-                musicToggle.textContent = '🔊';
-                isMusicPlaying = true;
+        // Try to auto-play on first click anywhere
+        let hasTriedAutoplay = false;
+        document.addEventListener('click', function(e) {
+            if (!hasTriedAutoplay && !isMusicPlaying) {
+                hasTriedAutoplay = true;
+                playMusic();
             }
-            document.removeEventListener('click', playOnFirstClick);
-        }, { once: true });
+        });
+        
+        // Try to play when page loads (may be blocked by browser)
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                playMusic();
+            }, 500);
+        });
 
         // Initialize
         showSlide(1);
