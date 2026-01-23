@@ -608,8 +608,8 @@
             font-weight: bold;
             margin-bottom: 30px;
             padding: 20px 40px;
-            /* Royal gold lettering */
-            color: transparent;
+            /* Royal gold lettering with solid fallback */
+            color: #d4af37;
             background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -619,7 +619,7 @@
             border-radius: 3px;
             font-family: 'Georgia', 'Times New Roman', serif;
             letter-spacing: 2px;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)) drop-shadow(0 2px 4px rgba(139, 90, 43, 0.4));
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
             animation: royalGlow 3s ease-in-out infinite;
         }
         
