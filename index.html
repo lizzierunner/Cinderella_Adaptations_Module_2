@@ -97,18 +97,27 @@
                 radial-gradient(1px 1px at 80% 10%, white, transparent),
                 radial-gradient(2px 2px at 90% 60%, white, transparent),
                 radial-gradient(1px 1px at 33% 85%, white, transparent),
-                radial-gradient(1px 1px at 15% 60%, white, transparent);
+                radial-gradient(1px 1px at 15% 60%, white, transparent),
+                radial-gradient(3px 3px at 25% 45%, rgba(255, 215, 0, 0.8), transparent),
+                radial-gradient(2px 2px at 75% 25%, rgba(212, 175, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 40% 80%, rgba(138, 202, 242, 0.8), transparent),
+                radial-gradient(2px 2px at 85% 85%, rgba(255, 255, 255, 0.9), transparent);
             background-size: 200% 200%;
             background-position: 0% 0%;
-            animation: twinkleStars 5s ease-in-out infinite;
+            animation: twinkleStars 5s ease-in-out infinite, starDrift 20s linear infinite;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         @keyframes twinkleStars {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.9; }
+        }
+        
+        @keyframes starDrift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
         .container {
@@ -309,6 +318,116 @@
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+        
+        /* Stardust shooting stars */
+        .shooting-star {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8);
+            animation: shootingStar 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(-45deg);
+                opacity: 0;
+                width: 3px;
+            }
+            10% {
+                opacity: 1;
+                width: 100px;
+            }
+            50% {
+                opacity: 0.8;
+                width: 120px;
+            }
+            100% {
+                transform: translateX(1000px) translateY(1000px) rotate(-45deg);
+                opacity: 0;
+                width: 3px;
+            }
+        }
+        
+        /* Decorative elements */
+        .castle-decor {
+            position: absolute;
+            font-size: 4em;
+            opacity: 0.15;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 10px rgba(139, 90, 43, 0.3));
+        }
+        
+        .carriage-decor {
+            position: absolute;
+            font-size: 3.5em;
+            opacity: 0.12;
+            pointer-events: none;
+            animation: gentleFloat 6s ease-in-out infinite;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+        }
+        
+        .floral-decor {
+            position: absolute;
+            font-size: 2.5em;
+            opacity: 0.2;
+            pointer-events: none;
+            animation: floralSway 4s ease-in-out infinite;
+            filter: drop-shadow(0 1px 6px rgba(139, 90, 43, 0.3));
+        }
+        
+        .prince-princess-decor {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.1;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 8px rgba(74, 123, 167, 0.3));
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        @keyframes floralSway {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.05); }
+        }
+        
+        /* Enhanced magical sparkle effects */
+        .magic-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleRise 4s ease-out infinite;
+            z-index: 1;
+            box-shadow: 0 0 15px 3px rgba(255, 215, 0, 0.6);
+        }
+        
+        @keyframes particleRise {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) translateX(10px) scale(1);
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(-20px) scale(0);
+                opacity: 0;
+            }
         }
 
         .slide h3 {
@@ -770,11 +889,22 @@
     <div class="container">
         <!-- Slide 1: Title -->
         <div class="slide title-slide" data-slide="1">
+            <!-- Magical sparkles -->
             <span class="sparkle" style="top: 10%; left: 10%;">✨</span>
             <span class="sparkle" style="top: 10%; right: 10%;">👑</span>
             <span class="sparkle" style="bottom: 15%; left: 10%;">🌟</span>
             <span class="sparkle" style="bottom: 15%; right: 10%;">💫</span>
             <span class="sparkle" style="top: 5%; left: 50%; transform: translateX(-50%);">🎭</span>
+            
+            <!-- Vintage decorative elements -->
+            <span class="castle-decor" style="top: 5%; right: 5%;">🏰</span>
+            <span class="castle-decor" style="top: 5%; left: 5%;">🏰</span>
+            <span class="carriage-decor" style="bottom: 20%; left: 8%;">🎃</span>
+            <span class="prince-princess-decor" style="bottom: 25%; right: 8%;">👸🤴</span>
+            <span class="floral-decor" style="top: 40%; left: 2%;">🌹</span>
+            <span class="floral-decor" style="top: 40%; right: 2%;">🌹</span>
+            <span class="floral-decor" style="bottom: 45%; left: 3%;">🌸</span>
+            <span class="floral-decor" style="bottom: 45%; right: 3%;">🌸</span>
             
             <h1>👑 Cinderella Adaptations 👑</h1>
             <h2>How Cultural Values Shape the Same Story</h2>
@@ -919,11 +1049,18 @@
 
         <!-- Slide 11: Conclusion -->
         <div class="slide title-slide hidden" data-slide="11">
+            <!-- Magical sparkles -->
             <span class="sparkle" style="top: 10%; left: 10%;">✨</span>
             <span class="sparkle" style="top: 10%; right: 10%;">👑</span>
             <span class="sparkle" style="bottom: 15%; left: 10%;">🌟</span>
             <span class="sparkle" style="bottom: 15%; right: 10%;">💫</span>
             <span class="sparkle" style="top: 5%; left: 50%; transform: translateX(-50%);">🎭</span>
+            
+            <!-- Glass slipper and finale decorations -->
+            <span class="carriage-decor" style="bottom: 30%; left: 50%; transform: translateX(-50%); font-size: 5em; opacity: 0.2; animation: shimmer 3s ease-in-out infinite;">👠</span>
+            <span class="floral-decor" style="bottom: 20%; left: 30%;">🌹</span>
+            <span class="floral-decor" style="bottom: 20%; right: 30%;">🌹</span>
+            <span class="castle-decor" style="top: 8%; left: 50%; transform: translateX(-50%); font-size: 3em; opacity: 0.15;">🏰</span>
             
             <h1>✨ Thank You ✨</h1>
             <h2>Fairy tales as mirrors of cultural evolution</h2>
@@ -1112,6 +1249,54 @@
             
             setTimeout(() => trail.remove(), 800);
         });
+        
+        // Stardust-style shooting stars
+        function createStardustShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.left = Math.random() * 30 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            document.body.appendChild(star);
+            
+            setTimeout(() => star.remove(), 5000);
+        }
+        
+        // Magic particles rising (Stardust effect)
+        function createMagicParticles() {
+            const particle = document.createElement('div');
+            particle.className = 'magic-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+            
+            // Random colors: gold, silver, purple (Stardust palette)
+            const colors = [
+                'rgba(255, 215, 0, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(212, 175, 255, 1)',
+                'rgba(138, 202, 242, 1)'
+            ];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.background = `radial-gradient(circle, ${color} 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)`;
+            particle.style.boxShadow = `0 0 15px 3px ${color}`;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 6000);
+        }
+        
+        // Continuous Stardust effects
+        setInterval(createStardustShootingStar, 4000);
+        setInterval(createMagicParticles, 300);
+        
+        // Extra shooting stars for dramatic effect
+        setInterval(() => {
+            if (Math.random() > 0.6) {
+                createStardustShootingStar();
+            }
+        }, 2000);
 
         // Initialize
         showSlide(1);
