@@ -201,6 +201,69 @@
             position: relative;
             overflow: hidden;
         }
+        
+        /* Special parchment styling for question slides */
+        .slide.question-slide {
+            background: 
+                /* Fine parchment texture */
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(139, 90, 43, 0.06) 0px,
+                    rgba(139, 90, 43, 0.06) 1px,
+                    transparent 1px,
+                    transparent 2px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(139, 90, 43, 0.04) 0px,
+                    rgba(139, 90, 43, 0.04) 1px,
+                    transparent 1px,
+                    transparent 2px
+                ),
+                /* Aged spots and discoloration */
+                radial-gradient(circle at 10% 15%, rgba(139, 90, 43, 0.12) 0%, transparent 8%),
+                radial-gradient(circle at 88% 25%, rgba(139, 90, 43, 0.1) 0%, transparent 10%),
+                radial-gradient(circle at 25% 85%, rgba(139, 90, 43, 0.08) 0%, transparent 12%),
+                radial-gradient(circle at 75% 75%, rgba(139, 90, 43, 0.06) 0%, transparent 15%),
+                radial-gradient(circle at 50% 40%, rgba(160, 82, 45, 0.05) 0%, transparent 20%),
+                /* Rich parchment gradient */
+                linear-gradient(135deg, 
+                    #f5deb3 0%,
+                    #e8d4a0 15%,
+                    #f0e6c8 30%,
+                    #e8d4a0 45%,
+                    #f5deb3 60%,
+                    #e8d4a0 75%,
+                    #f0e6c8 90%,
+                    #e8d4a0 100%);
+            border: 5px solid #8b5a2b;
+            box-shadow: 
+                0 10px 40px rgba(139, 90, 43, 0.6),
+                0 5px 20px rgba(0, 0, 0, 0.4),
+                inset 0 2px 5px rgba(0, 0, 0, 0.3),
+                inset 0 0 100px rgba(245, 222, 179, 0.5),
+                inset 0 0 30px rgba(139, 90, 43, 0.2);
+            animation: slideIn 0.6s ease-out, parchmentBreath 4s ease-in-out infinite;
+        }
+        
+        @keyframes parchmentBreath {
+            0%, 100% {
+                box-shadow: 
+                    0 10px 40px rgba(139, 90, 43, 0.6),
+                    0 5px 20px rgba(0, 0, 0, 0.4),
+                    inset 0 2px 5px rgba(0, 0, 0, 0.3),
+                    inset 0 0 100px rgba(245, 222, 179, 0.5),
+                    inset 0 0 30px rgba(139, 90, 43, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 12px 45px rgba(139, 90, 43, 0.7),
+                    0 6px 25px rgba(0, 0, 0, 0.5),
+                    inset 0 2px 5px rgba(0, 0, 0, 0.35),
+                    inset 0 0 110px rgba(245, 222, 179, 0.6),
+                    inset 0 0 35px rgba(139, 90, 43, 0.25);
+            }
+        }
 
         .slide::before {
             content: '';
@@ -540,66 +603,186 @@
         }
 
         .question-header {
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: bold;
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 30px;
+            padding: 20px 40px;
+            /* Royal gold lettering */
+            color: transparent;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            border: 3px solid #8b5a2b;
+            border-radius: 3px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)) drop-shadow(0 2px 4px rgba(139, 90, 43, 0.4));
+            animation: royalGlow 3s ease-in-out infinite;
+        }
+        
+        /* Parchment background layer behind text */
+        .question-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: 
+                /* Parchment texture */
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(139, 90, 43, 0.08) 0px,
+                    rgba(139, 90, 43, 0.08) 1px,
+                    transparent 1px,
+                    transparent 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(139, 90, 43, 0.06) 0px,
+                    rgba(139, 90, 43, 0.06) 1px,
+                    transparent 1px,
+                    transparent 3px
+                ),
+                /* Aged parchment gradient */
+                radial-gradient(circle at 30% 40%, rgba(245, 222, 179, 0.9) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(222, 184, 135, 0.8) 0%, transparent 50%),
+                linear-gradient(135deg, 
+                    #f5deb3 0%,
+                    #e8d4a0 25%, 
+                    #d4af37 50%, 
+                    #e8d4a0 75%,
+                    #f5deb3 100%);
+            border-radius: 3px;
+            box-shadow: 
+                0 8px 25px rgba(139, 90, 43, 0.4),
+                inset 0 2px 5px rgba(0, 0, 0, 0.2),
+                inset 0 0 60px rgba(245, 222, 179, 0.3);
+            z-index: -1;
+        }
+        
+        @keyframes royalGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)) drop-shadow(0 2px 4px rgba(139, 90, 43, 0.4)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6)) drop-shadow(0 2px 6px rgba(139, 90, 43, 0.5)) brightness(1.1);
+            }
+        }
+
+        .question-text {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding: 40px;
+            background: 
+                /* Antique parchment texture */
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(139, 90, 43, 0.04) 0px,
+                    rgba(139, 90, 43, 0.04) 1px,
+                    transparent 1px,
+                    transparent 2px
+                ),
                 repeating-linear-gradient(
                     90deg,
                     rgba(139, 90, 43, 0.03) 0px,
                     rgba(139, 90, 43, 0.03) 1px,
                     transparent 1px,
-                    transparent 3px
+                    transparent 2px
                 ),
-                linear-gradient(135deg, #d4af37 0%, #f4e4a7 100%);
-            border-radius: 10px;
-            color: #1e3a5f;
+                /* Age spots and discoloration */
+                radial-gradient(circle at 15% 20%, rgba(139, 90, 43, 0.15) 0%, transparent 8%),
+                radial-gradient(circle at 85% 30%, rgba(139, 90, 43, 0.12) 0%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(139, 90, 43, 0.1) 0%, transparent 12%),
+                radial-gradient(circle at 70% 70%, rgba(139, 90, 43, 0.08) 0%, transparent 15%),
+                /* Aged parchment color */
+                linear-gradient(135deg, 
+                    #f5deb3 0%,
+                    #e8d4a0 20%,
+                    #f0e6c8 40%,
+                    #e8d4a0 60%,
+                    #f5deb3 80%,
+                    #e8d4a0 100%);
+            border: 4px solid #8b5a2b;
+            border-radius: 5px;
+            line-height: 1.8;
+            /* Royal decree gold lettering */
+            background: linear-gradient(120deg, #b8860b 0%, #d4af37 25%, #ffd700 50%, #d4af37 75%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
             box-shadow: 
-                0 4px 15px rgba(212, 175, 55, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 0 30px rgba(139, 90, 43, 0.1);
+                0 8px 30px rgba(139, 90, 43, 0.5),
+                inset 0 2px 5px rgba(0, 0, 0, 0.2),
+                inset 0 0 80px rgba(245, 222, 179, 0.4),
+                inset 0 0 20px rgba(139, 90, 43, 0.1);
             position: relative;
-            border: 2px solid rgba(139, 90, 43, 0.2);
+            font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+            font-style: italic;
+            text-align: center;
+            animation: shimmerText 4s ease-in-out infinite, parchmentGlow 3s ease-in-out infinite;
         }
         
-        .question-header::before {
-            content: '✦';
+        @keyframes shimmerText {
+            0%, 100% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+        }
+        
+        @keyframes parchmentGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)) brightness(1.05);
+            }
+        }
+        
+        /* Ornate corners for parchment */
+        .question-text::before {
+            content: '❦';
             position: absolute;
+            top: 10px;
             left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #8b5a2b;
-            font-size: 0.6em;
-            opacity: 0.6;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #8b5a2b, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.7;
+            animation: cornerTwinkle 3s ease-in-out infinite;
         }
         
-        .question-header::after {
-            content: '✦';
+        .question-text::after {
+            content: '❦';
             position: absolute;
+            bottom: 10px;
             right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #8b5a2b;
-            font-size: 0.6em;
-            opacity: 0.6;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #8b5a2b, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.7;
+            animation: cornerTwinkle 3s ease-in-out infinite 1.5s;
         }
-
-        .question-text {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, 
-                rgba(30, 45, 70, 0.3) 0%, 
-                rgba(35, 52, 80, 0.25) 100%);
-            border: 2px solid rgba(138, 202, 242, 0.3);
-            border-radius: 15px;
-            line-height: 1.6;
-            color: #c0d5ea;
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        
+        @keyframes cornerTwinkle {
+            0%, 100% { 
+                opacity: 0.7; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.1);
+            }
         }
 
         .answer-box {
@@ -1096,7 +1279,10 @@
         </div>
 
         <!-- Slide 3: Question 1 -->
-        <div class="slide hidden" data-slide="3">
+        <div class="slide question-slide hidden" data-slide="3">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 1</div>
             <div class="question-text">
                 How does the role of Cinderella's mother change across adaptations, and what does that reveal about morality and belief?
@@ -1107,7 +1293,10 @@
         </div>
 
         <!-- Slide 4: Question 2 -->
-        <div class="slide hidden" data-slide="4">
+        <div class="slide question-slide hidden" data-slide="4">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 2</div>
             <div class="question-text">
                 How does Cinderella's level of agency change across versions, and what does that reflect about evolving ideas of strength?
@@ -1118,7 +1307,10 @@
         </div>
 
         <!-- Slide 5: Question 3 -->
-        <div class="slide hidden" data-slide="5">
+        <div class="slide question-slide hidden" data-slide="5">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 3</div>
             <div class="question-text">
                 What does the ash symbolize in Cinderella, especially in the 2015 version where it represents a loss of identity?
@@ -1129,7 +1321,10 @@
         </div>
 
         <!-- Slide 6: Question 4 -->
-        <div class="slide hidden" data-slide="6">
+        <div class="slide question-slide hidden" data-slide="6">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 4</div>
             <div class="question-text">
                 What is the significance of Cinderella saying, 'Just because it's what's done doesn't mean it's what should be done,' and how does that reflect modern values?
@@ -1142,7 +1337,10 @@
         </div>
 
         <!-- Slide 7: Question 5 -->
-        <div class="slide hidden" data-slide="7">
+        <div class="slide question-slide hidden" data-slide="7">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 5</div>
             <div class="question-text">
                 How do the different endings reflect shifting cultural ideas about justice, love, identity, and reward?
@@ -1155,7 +1353,10 @@
         </div>
 
         <!-- Slide 8: Question 6 -->
-        <div class="slide hidden" data-slide="8">
+        <div class="slide question-slide hidden" data-slide="8">
+            <div class="royal-seal" style="position: absolute; top: 20px; right: 20px; font-size: 3em; opacity: 0.15; filter: sepia(0.8);">👑</div>
+            <div class="royal-flourish" style="position: absolute; top: 15px; left: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
+            <div class="royal-flourish" style="position: absolute; bottom: 15px; right: 15px; font-size: 2em; opacity: 0.2;">⚜️</div>
             <div class="question-header">Question 6</div>
             <div class="question-text">
                 How does the scholarly article's argument about fairy-tale adaptations as cultural critiques help us understand all three versions of Cinderella?
